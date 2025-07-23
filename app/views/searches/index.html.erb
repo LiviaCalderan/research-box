@@ -1,0 +1,10 @@
+<% @searches.each do |search| %>
+    
+    <div>
+        <h1>Most searched topics</h1>
+        <h3>IP => <%= search.user_ip%> </h3>
+        <hr/>
+        <p><%= search.user_search%></p>
+        
+    </div>
+<% end %>

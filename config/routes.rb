@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "initial_page#index"
+
+  resources :searches
 end
