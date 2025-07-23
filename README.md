@@ -1,24 +1,13 @@
-# README
+# Helpjuice Real-time Search Box
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project developed as a Full-Stack internship test for Helpjuice.  
+The goal is to create a real-time search box, record user searches, and display analytics on search trends.
 
-Things you may want to cover:
+## Technologies Used
 
-* Ruby version
+- Backend: Ruby on Rails
+- Frontend: JavaScript
+- Testing: 
+- Deployment: 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## How to Run Locally
