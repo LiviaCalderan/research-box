@@ -9,5 +9,3 @@ The goal is to create a real-time search box, record user searches, and display 
 - Frontend: JavaScript
 - Testing: 
 - Deployment: 
-
-## How to Run Locally
