@@ -15,8 +15,13 @@ class SearchesController < ApplicationController
 
 
   def index
-    if ip = params[:ip].present?
-    @searches = Search.where(user_ip: ip).group(:user_search).order('count_all DESC').limit(10).count
+    ip = params[:ip]
+    if ip.present?
+      @searches = Search.where(user_ip: ip)
+                        .group(:user_search)
+                        .order(Arel.sql('COUNT(*) DESC'))
+                        .limit(10)
+                        .count
 
     else
       @searches = []

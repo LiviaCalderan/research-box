@@ -8,10 +8,10 @@
 
     <% if @searches.any? %> 
         <div class="results" id="results">
-            <h3>Top 10 Search Terms</h3>
+            <h3>Top Search Terms</h3>
             <ul class="search-list" id="searchList">
-                <% @searches.each do |search| %>
-                    <li><%= search.user_search %></li>
+                <% @searches.each do |search, _count| %>
+                    <li><%= search %></li>
                 <% end %>
             </ul>
         </div>
