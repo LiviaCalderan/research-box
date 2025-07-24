@@ -1,8 +1,13 @@
 <div class="container">
         <div class="logo">Helpjuice</div>
-        <h1 class="title">Search</h1>
+        <h1 class="title">Search your article</h1>
         <%= form_with url: searches_path, method: :post, local: true do %>
-            <%= text_field_tag :user_search, nil, placeholder: "Enter your search query...", class: "search-input" %>
+            <%= text_field_tag :user_search, nil, placeholder: "Enter your search ...", class: "search-input", autocomplete: "off", id: "liveSearch" %>
         <% end %>
-        <%= link_to "Search Report", searches_path, class:"btn"%>
+        
+</div>
+
+<div class="container-analytics">
+    <h2 class="title-analytics">Want to see what users are searching for?</h2>
+    <%= link_to "Search Analytics", searches_path, class:"btn"%>
 </div>
