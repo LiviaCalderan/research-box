@@ -1,5 +1,8 @@
 <div class="container">
-        <h1>Search</h1>
-        <input type="text" class="search-bar" placeholder="Enter your search query..." />
-        <button class="report-button">View search report by IP</button>
-    </div>
+        <div class="logo">Helpjuice</div>
+        <h1 class="title">Search</h1>
+        <%= form_with url: searches_path, method: :post, local: true do %>
+            <%= text_field_tag :user_search, nil, placeholder: "Enter your search query...", class: "search-input" %>
+        <% end %>
+        <%= link_to "Search Report", searches_path, class:"btn"%>
+</div>
