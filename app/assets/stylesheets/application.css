@@ -93,6 +93,14 @@
             font-weight: 600;
             text-align: center;
         }
+        
+        .results-title {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            text-align: center;
+        }
 
         .search-list {
             list-style: none;
@@ -100,28 +108,44 @@
         }
 
         .search-item {
-            background: rgba(102, 126, 234, 0.1);
-            margin-bottom: 8px;
-            padding: 12px 16px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
+            margin-bottom: 12px;
+            padding: 16px 20px;
+            border-radius: 12px;
             border-left: 4px solid #667eea;
             transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .search-item:hover {
-            background: rgba(102, 126, 234, 0.15);
-            transform: translateX(5px);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(240, 147, 251, 0.15) 100%);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
         }
 
-        .search-term {
+
+        .search-rank {
+            font-weight: 700;
+            color: #667eea;
+            font-size: 1.1rem;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .search-topic {
             font-weight: 500;
             color: #333;
+            flex-grow: 1;
         }
 
         .search-count {
-            color: #666;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
             font-size: 0.9rem;
-            margin-left: 10px;
+            font-weight: 500;
         }
 
         .search-input {
@@ -192,7 +216,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 20px;
+            margin-bottom: 30px;
             box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
         }
 

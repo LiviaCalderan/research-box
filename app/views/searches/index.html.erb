@@ -7,11 +7,15 @@
     <% end %>
 
     <% if @searches.any? %> 
-        <div class="results" id="results">
-            <h3>Top Search Terms</h3>
+        <div class="results-section" id="results">
+            <h3 class="results-title">Top Search Terms</h3>
             <ul class="search-list" id="searchList">
-                <% @searches.each do |search_query, count| %>
-                    <li><%= count %> times searched - <%= search_query %></li>
+                <% @searches.each_with_index do |(search_query, count), index| %>
+                    <li class="search-item">
+                        <span class="search-rank">#<%= index + 1%></span>
+                        <span class="search-topic"><%= search_query %></span>
+                        <span class="search-count"><%= count %> times</span>
+                    </li>
                 <% end %>
             </ul>
         </div>
@@ -20,8 +24,11 @@
                     No search data found for this IP address.
                 </div>
     <% end %>
+</div>
 
-    <%= link_to "Return to Search Box", root_path, class:"back-btn"%>
+<div class="container-analytics">
+    <h2 class="title-analytics">Want to go back to search?</h2>
+    <%= link_to "Return to Search Box", root_path, class:"btn"%>
 </div>
 
 
