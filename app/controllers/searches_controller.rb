@@ -20,6 +20,7 @@ class SearchesController < ApplicationController
 
     else
       @searches = []
+    end
   end
 
   private
