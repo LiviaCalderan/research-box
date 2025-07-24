@@ -15,13 +15,16 @@ class SearchesController < ApplicationController
 
 
   def index
-    ip = params[:ip].present?
-    @top_searches = Search.where(user_ip: ip).group(:user_search).order('count_all DESC').limit(10).count
+    if ip = params[:ip].present?
+    @searches = Search.where(user_ip: ip).group(:user_search).order('count_all DESC').limit(10).count
+
+    else
+      @searches = []
   end
 
   private
 
   def search_params
-    params.permit(:user_search, :user_ip)
+    params.permit(:user_search)
   end
 end
