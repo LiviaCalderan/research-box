@@ -1,8 +1,10 @@
-<% @searches.each do |search| %>
-    
+
+    <div>
+    </div>
+
     <div class="container">
         <h1 class="title">
-            Most searched based on IP: <%= search.user_ip%>
+            Most searched based on IP: <%= params[:ip] %>
             <span class="ip-address" id="ip-display">
             </span>
         </h1>
@@ -10,11 +12,13 @@
         <div class="search-list">
             <h2 class="list-header">Top 10 Most Searched Items</h2>
             <ol class="search-items" id="search-items">
-                <!-- Items will be populated by JavaScript -->
+                <% @top_searches.each do |search, count| %>
+                    <li><%= search %> - <%= count %> times </li>
+                <% end %>
             </ol>
         </div>
     </div>
-<% end %>
+
 
 
 
