@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   root "initial_page#index"
 
-  resources :searches
+  resources :searches, only [:index, :create]
 end
