@@ -33,9 +33,10 @@ class SearchesController < ApplicationController
 
   private
 
+  #Return the hash with the extracted params
   def search_params
-    if request.format.json?
-      Json.parse(request.body.read)
+    if request.content_type == 'application/json'
+      JSON.parse(request.body.read)
     else
       params
     end
