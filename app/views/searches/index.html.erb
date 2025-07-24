@@ -3,7 +3,7 @@
     <h1 class="title">Search Report by IP</h1>
     <%= form_with url: searches_path, method: :get, local: true do%>
         <%= text_field_tag :ip, params[:ip], placeholder: "Enter IP address (e.g., 192.168.1.1)", class:"ip-input", id:"ipInput"%>
-        <%= submit_tag "Buscar", class:"back-btn"%>
+        <%= submit_tag "Search", class:"back-btn"%>
     <% end %>
 
     <% if @searches.any? %> 
@@ -21,7 +21,7 @@
                 </div>
     <% end %>
 
-    <%= link_to "Back to Search", root_path, class:"back-btn"%>
+    <%= link_to "Return to Search Box", root_path, class:"back-btn"%>
 </div>
 
 
