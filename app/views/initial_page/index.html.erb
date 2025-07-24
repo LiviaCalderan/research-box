@@ -2,7 +2,7 @@
         <div class="logo">Helpjuice</div>
         <h1 class="title">Search your article</h1>
         <%= form_with url: searches_path, method: :post, local: true do %>
-            <%= text_field_tag :user_search, nil, placeholder: "Enter your search ...", class: "search-input", autocomplete: "off", id: "liveSearch" %>
+            <%= text_field_tag :user_search, nil, placeholder: "Enter your search ...", class: "search-input", autocomplete: "off", id: "search-input" %>
         <% end %>
         
 </div>

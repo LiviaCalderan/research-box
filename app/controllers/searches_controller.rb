@@ -3,7 +3,10 @@ class SearchesController < ApplicationController
 
 
   def create
-    @search = Search.new(search_params)
+    data = search_params
+    return head :ok if data["user_search"].blank?
+
+    @search = Search.new(user_search: data["user_search"])
     @search.user_ip = request.remote_ip
 
     if @search.save
@@ -31,6 +34,10 @@ class SearchesController < ApplicationController
   private
 
   def search_params
-    params.permit(:user_search)
+    if request.format.json?
+      Json.parse(request.body.read)
+    else
+      params
+    end
   end
 end

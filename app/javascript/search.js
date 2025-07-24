@@ -1,17 +1,25 @@
 let timeout;
 
-document.getElementById("search_input").addEventListener("input", function(e) {
-  clearTimeout(timeout);
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("search-input");
+  if(searchInput) {
+    searchInput.addEventListener("input", () => {
+      clearTimeout(timeout);
 
-  timeout = setTimeout(() => {
-    const searchQuery = e.target.value;
+      timeout = setTimeout(() => {
+        const searchQuery = searchInput.ariaValueMax.trim();
 
-    fetch("/searches", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ user_search: searchQuery })
+        if(searchQuery.length > 3) {
+          fetch("/searches", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").getAttribute("content"),
+            },
+            body: JSON.stringify({user_search: searchQuery})
+          });
+        }
+      }, 800);
     });
-  }, 800); // só envia 800ms após parar de digitar
+  }
 });
