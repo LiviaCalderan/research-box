@@ -11,5 +11,15 @@ RSpec.describe "Searches", type: :request do
         expect(Search.count).to eq(1)
       end
     end
+    
+    context "with blank user_search" do
+      it "does not create a search and returns status 200" do
+        headers = { "CONTENT_TYPE" => "application/json" }
+        post "/searches", params: { user_search: "" }.to_json, headers: headers
+
+        expect(response).to have_http_status(:ok)
+        expect(Search.count).to eq(0)
+      end
+    end
   end
 end
