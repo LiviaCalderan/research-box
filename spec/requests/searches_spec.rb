@@ -63,4 +63,16 @@ RSpec.describe "Searches", type: :request do
     expect(response).to have_http_status(:success)
     expect(assigns(:searches)).to eq({})
   end
+
+  it "ignores unexpected parameters in request body" do
+    headers = { "CONTENT_TYPE" => "application/json" }
+    post "/searches", params: {
+      user_search: "valid",
+      hacker_param: "hacker"
+    }.to_json, headers: headers
+
+    search = Search.last
+    expect(search.user_search).to eq("valid")
+    expect(search.attributes).not_to include("hacker_param")
+  end
 end
