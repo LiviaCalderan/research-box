@@ -13,7 +13,7 @@ The goal is to create a real-time search box, record user searches, and display 
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/searchbox.git
+git clone https://github.com/LiviaCalderan/research-box.git
 cd searchbox
 
 # 2. Install Ruby dependencies
