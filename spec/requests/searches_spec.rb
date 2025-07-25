@@ -56,4 +56,11 @@ RSpec.describe "Searches", type: :request do
     expect(response).to have_http_status(:created)
     expect(Search.last.user_search).to eq("hello world")
   end
+
+  it "when there are no searches for the ip returns empty hash" do
+    get "/searches", params: { ip: "10.0.0.1" }
+
+    expect(response).to have_http_status(:success)
+    expect(assigns(:searches)).to eq({})
+  end
 end
