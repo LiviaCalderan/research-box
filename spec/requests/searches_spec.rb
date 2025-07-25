@@ -38,5 +38,14 @@ RSpec.describe "Searches", type: :request do
         expect(assigns(:searches)).to eq({ "test2times" => 2, "test1" => 1 })
       end
     end
+
+    context "when ip param is missing" do
+      it "returns an empty array" do
+        get "/searches"
+
+        expect(response).to have_http_status(:success)
+        expect(assigns(:searches)).to eq([])
+      end
+    end
   end
 end
