@@ -48,4 +48,12 @@ RSpec.describe "Searches", type: :request do
       end
     end
   end
+
+  it "trims user_search before save" do
+    headers = { "CONTENT_TYPE" => "application/json" }
+    post "/searches", params: { user_search: "   hello world   " }.to_json, headers: headers
+
+    expect(response).to have_http_status(:created)
+    expect(Search.last.user_search).to eq("hello world")
+  end
 end
