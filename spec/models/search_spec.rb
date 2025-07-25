@@ -16,4 +16,15 @@ RSpec.describe Search, type: :model do
     expect(search).to be_valid
   end
 
+  it "is invalid when query is just spaces (even if front uses trim)" do
+    search = Search.new(user_search: "    ", user_ip: "10.0.0.1")
+    expect(search).not_to be_valid
+  end
+
+  it "strips whitespace from user_search before validation" do
+    search = Search.new(user_search: "  search term  ", user_ip: "10.0.0.1")
+    search.valid?
+    expect(search.user_search).to eq("search term")
+  end
+
 end
